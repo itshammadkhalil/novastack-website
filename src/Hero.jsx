@@ -30,10 +30,11 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-6">
-            Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600">Smart Web Solutions</span> <br className="hidden md:block" />
-            & Automating Growth.
-          </h1>
+         {/* Hero Heading - Mobile par text chota aur leading set ki hai */}
+<h1 className="text-4xl md:text-8xl font-black text-white uppercase tracking-tighter mb-6 leading-[1.1] md:leading-[0.9]">
+  Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600">Smart Web Solutions</span> <br className="hidden md:block" />
+  & Automating Growth.
+</h1>
         </motion.div>
 
         <motion.p 
