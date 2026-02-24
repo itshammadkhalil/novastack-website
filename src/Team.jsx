@@ -16,7 +16,7 @@ const Founders = () => {
       name: "Usman Wajid",
       role: "Operations & Strategy", // Purana Role
       bio: "Strategizing growth and ensuring every project at NovaStack meets the highest standards of innovation and efficiency.",
-      image: "/Usman.jpg",
+      image: "/usman.jpg",
       portfolio: "https://Usmanwajid.com",
       linkedin: "https://www.linkedin.com/in/usmanwajid26/",
       email: "Hello@usmanwajid.com"
