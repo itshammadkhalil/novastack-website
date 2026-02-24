@@ -1,114 +1,80 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, ShieldCheck, FileText } from 'lucide-react';
+import React from 'react';
+import { Github, Linkedin, Twitter, Mail, ArrowUpCircle } from 'lucide-react';
 
 const Footer = () => {
-  const [modalContent, setModalContent] = useState(null);
-
-  const toggleModal = (type) => {
-    if (type === 'privacy') {
-      setModalContent({
-        title: "Privacy Policy",
-        icon: <ShieldCheck className="text-green-500" />,
-        text: "At NovaStack, we prioritize your data security. We only collect information necessary to provide our services. Your data is never sold to third parties and is protected using industry-standard encryption."
-      });
-    } else if (type === 'tos') {
-      setModalContent({
-        title: "Terms of Service",
-        icon: <FileText className="text-blue-500" />,
-        text: "By using NovaStack's services, you agree to our project timelines and payment terms. All custom code provided remains the intellectual property of NovaStack until final payment is cleared."
-      });
-    } else {
-      setModalContent(null);
-    }
-  };
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full py-16 bg-zinc-950/50 border-t border-white/5 relative overflow-hidden">
-      
-      {/* Background Subtle Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-green-500/20 to-transparent"></div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-8 relative z-10">
+    <footer className="bg-zinc-950 border-t border-white/5 pt-20 pb-10">
+      <div className="max-w-7xl mx-auto px-6">
         
-        {/* LOGO AREA: Bold, Uppercase, Italic (Same as Navbar & Hero) */}
-        <div className="flex flex-col items-center md:items-start gap-2">
-          <div className="text-2xl font-black text-white uppercase tracking-tighter italic">
-            Nova<span className="text-green-500">Stack</span>
+        {/* Main Footer Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+          
+          {/* Column 1: Brand & Bio */}
+          <div className="col-span-1 md:col-span-1 flex flex-col items-center md:items-start text-center md:text-left">
+            <div className="flex items-center gap-2 mb-6 cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
+              <img src="/logo.png" alt="NS" className="h-8 w-auto" />
+              <span className="text-xl font-black text-white uppercase italic">
+                Nova<span className="text-green-500">Stack</span>
+              </span>
+            </div>
+            <p className="text-zinc-400 text-sm leading-relaxed max-w-xs">
+              Engineering high-performance web applications and intelligent AI automations for modern businesses.
+            </p>
           </div>
-          <div className="text-zinc-600 text-[10px] font-bold uppercase tracking-[0.3em]">
-            Next-Gen Tech Agency
+
+          {/* Column 2: Quick Links */}
+          <div className="flex flex-col items-center md:items-start">
+            <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-xs">Navigation</h4>
+            <div className="flex flex-col gap-4 text-zinc-500 text-sm font-medium items-center md:items-start">
+              <a href="#all-services" className="hover:text-green-500 transition-colors">Services</a>
+              <a href="#work" className="hover:text-green-500 transition-colors">Portfolio</a>
+              <a href="#founders" className="hover:text-green-500 transition-colors">Our Team</a>
+              <a href="#contact" className="hover:text-green-500 transition-colors">Get in touch</a>
+            </div>
+          </div>
+
+          {/* Column 3: Contact Info */}
+          <div className="flex flex-col items-center md:items-start text-center md:text-left">
+            <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-xs">Connect</h4>
+            <div className="flex flex-col gap-4 text-zinc-500 text-sm">
+              <p className="hover:text-white cursor-pointer transition-colors flex items-center gap-2 justify-center md:justify-start">
+                <Mail size={14} className="text-green-500" />
+                info.novastack@gmail.com
+              </p>
+              <p className="text-zinc-500 italic">Based in Pakistan, Serving Globally</p>
+            </div>
+          </div>
+
+          {/* Column 4: Newsletter/CTA */}
+          <div className="flex flex-col items-center md:items-start">
+            <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-xs">Legal</h4>
+            <div className="flex flex-col gap-4 text-zinc-500 text-sm items-center md:items-start">
+              <span className="hover:text-white cursor-pointer">Privacy Policy</span>
+              <span className="hover:text-white cursor-pointer">Terms of Service</span>
+              <div className="flex gap-4 mt-2">
+                <a href="https://linkedin.com/company/novastack-agency" className="text-zinc-400 hover:text-green-500 transition-all"><Linkedin size={20} /></a>
+                <a href="#" className="text-zinc-400 hover:text-green-500 transition-all"><Twitter size={20} /></a>
+                <a href="#" className="text-zinc-400 hover:text-green-500 transition-all"><Github size={20} /></a>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Legal Links: Clean uppercase style */}
-        <div className="flex gap-10">
+        {/* Bottom Bar */}
+        <div className="border-t border-white/5 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-zinc-600 text-[10px] uppercase tracking-[0.3em]">
+            © {currentYear} NovaStack Technology. All Rights Reserved.
+          </p>
           <button 
-            onClick={() => toggleModal('privacy')}
-            className="text-zinc-500 hover:text-white transition-all duration-300 text-[10px] font-black uppercase tracking-widest cursor-pointer"
+            onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
+            className="text-zinc-500 hover:text-green-500 transition-all flex items-center gap-2 text-xs uppercase font-bold tracking-widest"
           >
-            Privacy Policy
+            Back to top <ArrowUpCircle size={20} />
           </button>
-          <button 
-            onClick={() => toggleModal('tos')}
-            className="text-zinc-500 hover:text-white transition-all duration-300 text-[10px] font-black uppercase tracking-widest cursor-pointer"
-          >
-            Terms of Service
-          </button>
-        </div>
-
-        {/* Copyright */}
-        <div className="text-zinc-600 text-[10px] font-bold uppercase tracking-widest">
-          © 2026 All Rights Reserved
         </div>
       </div>
-
-      {/* Modal Overlay (Glassmorphism Style) */}
-      <AnimatePresence>
-        {modalContent && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setModalContent(null)}
-              className="absolute inset-0 bg-zinc-950/90 backdrop-blur-md"
-            />
-            
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-lg bg-zinc-900/50 border border-white/10 p-10 rounded-[2.5rem] backdrop-blur-2xl shadow-2xl"
-            >
-              <button 
-                onClick={() => setModalContent(null)}
-                className="absolute top-8 right-8 text-zinc-500 hover:text-white transition-colors"
-              >
-                <X size={24} />
-              </button>
-
-              <div className="flex items-center gap-4 mb-8">
-                <div className="p-4 bg-white/5 rounded-2xl border border-white/10">
-                  {modalContent.icon}
-                </div>
-                <h3 className="text-2xl font-black text-white uppercase tracking-tighter italic">{modalContent.title}</h3>
-              </div>
-
-              <p className="text-zinc-400 leading-relaxed mb-10 text-sm font-medium">
-                {modalContent.text}
-              </p>
-
-              <button 
-                onClick={() => setModalContent(null)}
-                className="w-full py-5 bg-white text-zinc-950 font-black uppercase tracking-tighter rounded-2xl hover:bg-green-400 transition-all duration-300 transform hover:scale-[1.02]"
-              >
-                Got it
-              </button>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
     </footer>
   );
 };
