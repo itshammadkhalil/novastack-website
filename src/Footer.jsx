@@ -14,7 +14,8 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-zinc-950 border-t border-white/5 py-12 relative">
+    // Footer.jsx ke start mein ye classes check karein
+<footer className="relative w-full bg-zinc-950 border-t border-white/5 py-12 mt-auto">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           
