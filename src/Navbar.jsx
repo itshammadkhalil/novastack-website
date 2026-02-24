@@ -20,12 +20,12 @@ const Navbar = () => {
           className="flex items-center gap-2 md:gap-3 cursor-pointer z-[101]" 
           onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
         >
-          {/* Aapka NS Logo Icon */}
-          <img 
-            src="/logo.png" 
-            alt="NS" 
-            className="h-7 w-7 md:h-9 md:w-9 object-contain" 
-          />
+          {/* Aapka NS Logo Icon - Size Increased */}
+<img 
+  src="/logo.png" 
+  alt="NS" 
+  className="h-10 w-auto md:h-14 lg:h-16 brightness-110 contrast-110 object-contain" 
+/>
           
           {/* Wahi Purana Text Style jo aapne manga */}
           <span className="text-lg md:text-2xl font-black text-white uppercase tracking-tighter italic leading-none">
