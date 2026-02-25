@@ -1,84 +1,94 @@
 import React from 'react';
 import { Linkedin, Mail, ExternalLink } from 'lucide-react';
 
-const Founders = () => {
+const Team = () => {
   const founders = [
     {
+      id: "01",
       name: "Hammad Khalil",
-      role: "Lead Software Architect", // Purana Role
-      bio: "Crafting scalable digital architectures and turning complex problems into seamless web experiences at NovaStack.",
-      image: "/hammad.jpg", 
-      portfolio: "https://hammadkhalil.me",
+      role: "CO-FOUNDER & CTO", 
+      bio: "The technical architect driving NovaStack's engineering vision. Expert in building complex, scalable digital ecosystems.",
+      image: "/hammad.jpg",
       linkedin: "https://www.linkedin.com/in/muhammad-hammad-khalil/",
-      email: "Hello@hammadkhalil.me"
+      portfolio: "Hammadkhalil.me"
     },
     {
+      id: "02",
       name: "Usman Wajid",
-      role: "Operations & Strategy", // Purana Role
-      bio: "Strategizing growth and ensuring every project at NovaStack meets the highest standards of innovation and efficiency.",
+      role: "CO-FOUNDER & COO", // Operations Head
+      bio: "Leading operational excellence and product strategy. Ensuring every solution is optimized for business growth.",
       image: "/usman.jpg",
-      portfolio: "https://Usmanwajid.com",
       linkedin: "https://www.linkedin.com/in/usmanwajid26/",
-      email: "Hello@usmanwajid.com"
+      portfolio: "Usmanwajid.com"
+    },
+    {
+      id: "03",
+      name: "Bilal Khaliq",
+      role: "CO-FOUNDER & CGO", // Growth Head 
+      bio: "Strategic growth expert focused on client relations and expanding NovaStack's global footprint through smart lead acquisition.",
+      image: "/bilal.jpg",
+      linkedin: "https://www.linkedin.com/in/bilal-khaliq-69bb54291/",
+      email: "Khaliqbilal53@gmail.com",
+      portfolio: "#"
     }
   ];
 
   return (
-    <section id="founders" className="py-24 bg-zinc-950 px-6">
+    <section id="team" className="py-24 bg-zinc-950 px-6">
       <div className="max-w-7xl mx-auto">
         
         {/* Header */}
         <div className="mb-16">
-          <h2 className="text-sm uppercase tracking-[0.3em] text-green-500 font-bold mb-4">Behind the Vision</h2>
-          <h3 className="text-4xl md:text-6xl font-black text-white italic uppercase leading-none">
-            The <span className="text-zinc-800">Founders</span>
+          <h2 className="text-green-500 text-[10px] font-bold uppercase tracking-[0.4em] mb-2">BEHIND THE VISION</h2>
+          <h3 className="text-4xl md:text-6xl font-black text-white italic uppercase leading-none tracking-tighter">
+            THE <span className="text-zinc-800 text-outline-white italic">FOUNDERS</span>
           </h3>
         </div>
 
         {/* Founders Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {founders.map((founder, index) => (
-            <div key={index} className="group relative bg-zinc-900/30 border border-white/5 p-8 rounded-[2rem] hover:border-green-500/50 transition-all duration-500 overflow-hidden">
-              <div className="flex flex-col md:flex-row gap-8 items-center relative z-10">
-                
-                {/* Profile Image */}
-                <div className="w-32 h-32 md:w-44 md:h-44 rounded-2xl overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700 border border-white/10">
-                  <img 
-                    src={founder.image} 
-                    alt={founder.name} 
-                    className="w-full h-full object-cover"
-                    onError={(e) => { e.target.src = "https://via.placeholder.com/200" }}
-                  />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {founders.map((founder) => (
+            <div key={founder.id} className="group relative bg-zinc-900/40 border border-white/5 p-6 md:p-8 rounded-[2.5rem] hover:border-green-500/30 transition-all duration-500">
+              
+              <div className="flex flex-col md:flex-row lg:flex-col xl:flex-row gap-6 items-center md:items-start relative z-10">
+                {/* Image Area */}
+                <div className="w-32 h-32 md:w-36 md:h-36 flex-shrink-0 rounded-[2rem] overflow-hidden border border-white/10 grayscale group-hover:grayscale-0 transition-all duration-500 shadow-2xl shadow-black">
+                  <img src={founder.image} alt={founder.name} className="w-full h-full object-cover" />
                 </div>
 
-                {/* Info */}
+                {/* Info Area */}
                 <div className="flex-1 text-center md:text-left">
-                  <h4 className="text-2xl font-bold text-white mb-1 tracking-tight">{founder.name}</h4>
-                  <p className="text-green-500 text-xs font-black uppercase tracking-widest mb-4">{founder.role}</p>
-                  <p className="text-zinc-400 text-sm leading-relaxed mb-6 italic">"{founder.bio}"</p>
+                  <h4 className="text-2xl font-bold text-white mb-1 italic tracking-tight">{founder.name}</h4>
+                  <p className="text-green-500 text-[10px] font-black uppercase tracking-[0.2em] mb-4">{founder.role}</p>
                   
-                  {/* Action Buttons */}
-                  <div className="flex flex-wrap justify-center md:justify-start gap-4 items-center">
-                    <a href={founder.portfolio} target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-white text-zinc-950 px-5 py-2 rounded-xl text-xs font-black uppercase italic hover:bg-green-400 transition-all">
-                      Portfolio <ExternalLink size={14} />
+                  <p className="text-zinc-400 text-[11px] leading-relaxed mb-6 italic opacity-80 line-clamp-3">
+                    "{founder.bio}"
+                  </p>
+
+                  <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
+                    {/* Portfolio/Contact Button */}
+                    <a href={founder.portfolio} className="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full text-[9px] font-black uppercase hover:bg-green-500 transition-colors duration-300">
+                      VIEW WORK <ExternalLink size={10} />
                     </a>
-                    
+
+                    {/* Socials */}
                     <div className="flex gap-2">
-                      <a href={founder.linkedin} target="_blank" rel="noreferrer" className="text-zinc-500 hover:text-white p-2 bg-white/5 rounded-lg transition-colors border border-white/5">
-                        <Linkedin size={18} />
+                      <a href={founder.linkedin} target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-zinc-700 transition-all">
+                        <Linkedin size={14} />
                       </a>
-                      <a href={`mailto:${founder.email}`} className="text-zinc-500 hover:text-white p-2 bg-white/5 rounded-lg transition-colors border border-white/5">
-                        <Mail size={18} />
+                      <a href={`mailto:${founder.email || 'hello@novastack.tech'}`} className="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-zinc-700 transition-all">
+                        <Mail size={14} />
                       </a>
                     </div>
                   </div>
                 </div>
               </div>
-              
-              {/* Subtle Numbering */}
-              <span className="absolute -bottom-6 -right-2 text-9xl font-black text-white/[0.02] italic select-none">
-                0{index + 1}
-              </span>
+
+              {/* Decorative Number */}
+              <div className="absolute -bottom-2 -right-2 text-zinc-800/10 font-black italic text-8xl pointer-events-none group-hover:text-green-500/5 transition-colors">
+                {founder.id}
+              </div>
+
             </div>
           ))}
         </div>
@@ -87,4 +97,4 @@ const Founders = () => {
   );
 };
 
-export default Founders;
+export default Team;
