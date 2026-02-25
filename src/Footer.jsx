@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Linkedin, Mail, ArrowUpCircle, X } from 'lucide-react';
+import { Linkedin, Mail, ArrowUpCircle, X, Terminal } from 'lucide-react';
 
 const Footer = () => {
   const [modalContent, setModalContent] = useState(null);
@@ -14,7 +14,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative w-full bg-zinc-950 border-t border-white/5 py-12 mt-auto z-50">
+    <footer className="relative w-full bg-zinc-950 border-t border-white/5 py-12 z-50">
       <div className="max-w-7xl mx-auto px-6 relative">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           
@@ -57,7 +57,7 @@ const Footer = () => {
       {/* --- POPUP MODAL --- */}
       {modalContent && (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center p-6 bg-black/95 backdrop-blur-md">
-          <div className="bg-zinc-900 border border-white/10 p-8 md:p-12 rounded-[2.5rem] max-w-3xl w-full max-h-[85vh] overflow-y-auto relative shadow-2xl custom-scrollbar">
+          <div className="bg-zinc-900 border border-white/10 p-8 md:p-12 rounded-[2.5rem] max-w-3xl w-full max-h-[85vh] overflow-y-auto relative shadow-2xl">
             <button onClick={() => toggleModal(null)} className="absolute top-6 right-6 text-zinc-500 hover:text-white transition-colors">
               <X size={24} />
             </button>
@@ -70,31 +70,23 @@ const Footer = () => {
               {modalContent === 'privacy' ? (
                 <>
                   <section>
-                    <h4 className="text-green-500 font-black mb-2 uppercase text-[11px]">01. Data Integrity</h4>
-                    <p>At NovaStack, we operate under strict confidentiality. Any data collected during the engineering phase—including API keys, user databases, and proprietary logic—is encrypted and stored in isolated environments.</p>
+                    <h4 className="text-green-500 font-black mb-2 uppercase text-[11px] flex items-center gap-2"><Terminal size={12}/> 01. Data Integrity</h4>
+                    <p>At NovaStack, we operate under strict confidentiality. Any data collected during the engineering phase is encrypted and stored in isolated environments.</p>
                   </section>
                   <section>
-                    <h4 className="text-green-500 font-black mb-2 uppercase text-[11px]">02. Information Usage</h4>
-                    <p>We do not sell or trade client information. Information is strictly used for service optimization, AI training (if specified by the client), and system maintenance.</p>
-                  </section>
-                  <section>
-                    <h4 className="text-green-500 font-black mb-2 uppercase text-[11px]">03. Third-Party Protocols</h4>
-                    <p>When integrating services like OpenAI, Vapi, or n8n, we ensure all third-party connections comply with enterprise-level security standards (SOC2/GDPR).</p>
+                    <h4 className="text-green-500 font-black mb-2 uppercase text-[11px] flex items-center gap-2"><Terminal size={12}/> 02. Information Usage</h4>
+                    <p>We do not sell or trade client information. Information is strictly used for service optimization and AI training (if specified).</p>
                   </section>
                 </>
               ) : (
                 <>
                   <section>
-                    <h4 className="text-green-500 font-black mb-2 uppercase text-[11px]">01. Project Engagement</h4>
-                    <p>NovaStack operates on a milestone-based delivery system. Development begins only after the initial technical discovery phase and deposit confirmation.</p>
+                    <h4 className="text-green-500 font-black mb-2 uppercase text-[11px] flex items-center gap-2"><Terminal size={12}/> 01. Project Engagement</h4>
+                    <p>NovaStack operates on a milestone-based delivery system. Development begins only after technical discovery and deposit confirmation.</p>
                   </section>
                   <section>
-                    <h4 className="text-green-500 font-black mb-2 uppercase text-[11px]">02. Intellectual Property</h4>
-                    <p>Upon final payment, the full ownership of the custom source code and assets is transferred to the client, unless otherwise specified in a custom licensing agreement.</p>
-                  </section>
-                  <section>
-                    <h4 className="text-green-500 font-black mb-2 uppercase text-[11px]">03. Maintenance & Support</h4>
-                    <p>We provide a 30-day post-delivery bug-fix warranty. Ongoing maintenance, server scaling, and AI model fine-tuning are managed under separate SLA contracts.</p>
+                    <h4 className="text-green-500 font-black mb-2 uppercase text-[11px] flex items-center gap-2"><Terminal size={12}/> 02. Intellectual Property</h4>
+                    <p>Upon final payment, full ownership of custom source code is transferred to the client, ensuring total control over your digital assets.</p>
                   </section>
                 </>
               )}
