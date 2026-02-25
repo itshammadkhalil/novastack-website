@@ -68,7 +68,7 @@ const Team = () => {
                   <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
                     {/* Portfolio/Contact Button */}
                     <a href={founder.portfolio} className="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full text-[9px] font-black uppercase hover:bg-green-500 transition-colors duration-300">
-                      VIEW WORK <ExternalLink size={10} />
+                    PORTFOLIO <ExternalLink size={10} />
                     </a>
 
                     {/* Socials */}
