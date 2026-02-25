@@ -51,9 +51,9 @@ const Team = () => {
             <div key={founder.id} className="group relative bg-zinc-900/40 border border-white/5 p-6 md:p-8 rounded-[2.5rem] hover:border-green-500/30 transition-all duration-500">
               
               <div className="flex flex-col md:flex-row lg:flex-col xl:flex-row gap-6 items-center md:items-start relative z-10">
-                <div className="w-32 h-32 md:w-36 md:h-36 flex-shrink-0 rounded-[2rem] overflow-hidden border border-white/10 grayscale group-hover:grayscale-0 transition-all duration-500 shadow-2xl shadow-black">
-                  <img src={founder.image} alt={founder.name} className="w-full h-full object-cover" />
-                </div>
+                <div className="w-32 h-32 md:w-36 md:h-36 flex-shrink-0 rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl shadow-black">
+                 <img src={founder.image} alt={founder.name} className="w-full h-full object-cover" />
+               </div>
 
                 <div className="flex-1 text-center md:text-left">
                   <h4 className="text-2xl font-bold text-white mb-1 italic tracking-tight">{founder.name}</h4>
