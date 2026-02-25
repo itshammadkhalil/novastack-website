@@ -39,6 +39,7 @@ const Team = () => {
     <section id="team" className="py-24 bg-zinc-950 px-6">
       <div className="max-w-7xl mx-auto">
         
+        {/* Header */}
         <div className="mb-16">
           <h2 className="text-green-500 text-[10px] font-bold uppercase tracking-[0.4em] mb-2">BEHIND THE VISION</h2>
           <h3 className="text-4xl md:text-6xl font-black text-white italic uppercase leading-none tracking-tighter">
@@ -46,14 +47,17 @@ const Team = () => {
           </h3>
         </div>
 
+        {/* Founders Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {founders.map((founder) => (
             <div key={founder.id} className="group relative bg-zinc-900/40 border border-white/5 p-6 md:p-8 rounded-[2.5rem] hover:border-green-500/30 transition-all duration-500">
               
               <div className="flex flex-col md:flex-row lg:flex-col xl:flex-row gap-6 items-center md:items-start relative z-10">
+                
+              
                 <div className="w-32 h-32 md:w-36 md:h-36 flex-shrink-0 rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl shadow-black">
-                 <img src={founder.image} alt={founder.name} className="w-full h-full object-cover" />
-               </div>
+                  <img src={founder.image} alt={founder.name} className="w-full h-full object-cover" />
+                </div>
 
                 <div className="flex-1 text-center md:text-left">
                   <h4 className="text-2xl font-bold text-white mb-1 italic tracking-tight">{founder.name}</h4>
@@ -72,7 +76,6 @@ const Team = () => {
                       <a href={founder.linkedin} target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-zinc-700 transition-all">
                         <Linkedin size={14} />
                       </a>
-                      
                       <a href={`mailto:${founder.email}`} className="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-zinc-700 transition-all">
                         <Mail size={14} />
                       </a>
@@ -81,6 +84,7 @@ const Team = () => {
                 </div>
               </div>
 
+              {/* Decorative Number */}
               <div className="absolute -bottom-2 -right-2 text-zinc-800/10 font-black italic text-8xl pointer-events-none group-hover:text-green-500/5 transition-colors">
                 {founder.id}
               </div>
