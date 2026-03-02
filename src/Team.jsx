@@ -36,7 +36,8 @@ const Team = () => {
   ];
 
   return (
-    <section id="team" className="py-24 bg-zinc-950 px-6">
+    
+    <section id="team" className="py-24 bg-zinc-950 px-6 flex-shrink-0">
       <div className="max-w-7xl mx-auto">
         
         {/* Header */}
@@ -50,11 +51,9 @@ const Team = () => {
         {/* Founders Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {founders.map((founder) => (
-            <div key={founder.id} className="group relative bg-zinc-900/40 border border-white/5 p-6 md:p-8 rounded-[2.5rem] hover:border-green-500/30 transition-all duration-500">
+            <div key={founder.id} className="group relative bg-zinc-900/40 border border-white/5 p-6 md:p-8 rounded-[2.5rem] hover:border-green-500/30 transition-all duration-500 h-full">
               
               <div className="flex flex-col md:flex-row lg:flex-col xl:flex-row gap-6 items-center md:items-start relative z-10">
-                
-              
                 <div className="w-32 h-32 md:w-36 md:h-36 flex-shrink-0 rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl shadow-black">
                   <img src={founder.image} alt={founder.name} className="w-full h-full object-cover" />
                 </div>
@@ -68,9 +67,11 @@ const Team = () => {
                   </p>
 
                   <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
-                    <a href={founder.portfolio} target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full text-[9px] font-black uppercase hover:bg-green-500 transition-colors duration-300">
-                      PORTFOLIO <ExternalLink size={10} />
-                    </a>
+                    {founder.portfolio !== "#" && (
+                      <a href={founder.portfolio} target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full text-[9px] font-black uppercase hover:bg-green-500 transition-colors duration-300">
+                        PORTFOLIO <ExternalLink size={10} />
+                      </a>
+                    )}
 
                     <div className="flex gap-2">
                       <a href={founder.linkedin} target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-zinc-700 transition-all">

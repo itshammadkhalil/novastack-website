@@ -34,10 +34,11 @@ const Expertise = () => {
   ];
 
   return (
-    <section id="expertise" className="py-24 bg-zinc-950 px-6">
+    
+    <section id="expertise" className="relative w-full py-24 bg-zinc-950 px-6 flex-shrink-0">
       <div className="max-w-7xl mx-auto">
         
-        {/* Header Section */}
+       
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-white italic uppercase tracking-tighter">
             Our <span className="text-green-500">Expertise</span>
@@ -47,14 +48,13 @@ const Expertise = () => {
           </p>
         </div>
 
-        {/* Grid: Mobile par 1 column (agar clean chahiye) ya 2 columns (agar height bachani hai) */}
-        {/* Maine 'grid-cols-2' rakha hai mobile ke liye taake page bohot lamba na ho */}
+       
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {skills.map((item, index) => (
-            <div key={index} className="group relative bg-zinc-900/40 border border-white/5 p-6 rounded-3xl hover:border-green-500/30 transition-all duration-500 flex flex-col justify-between min-h-[250px]">
+            <div key={index} className="group relative bg-zinc-900/40 border border-white/5 p-6 rounded-3xl hover:border-green-500/30 transition-all duration-500 flex flex-col justify-between min-h-[250px] w-full">
               
               <div>
-                {/* Icon Box */}
+               
                 <div className="w-12 h-12 bg-zinc-800/50 rounded-2xl flex items-center justify-center text-green-500 mb-6 border border-white/5 group-hover:bg-green-500 group-hover:text-black transition-all">
                   {item.icon}
                 </div>
@@ -68,7 +68,7 @@ const Expertise = () => {
                 </p>
               </div>
 
-              {/* Tech Stack Badges & More Count */}
+              
               <div className="flex flex-col gap-3">
                 <div className="flex flex-wrap gap-1.5">
                   {item.stack.map((tech, i) => (
@@ -85,7 +85,6 @@ const Expertise = () => {
                 </div>
               </div>
 
-              {/* Hover Glow Effect */}
               <div className="absolute inset-0 bg-green-500/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl pointer-events-none"></div>
             </div>
           ))}

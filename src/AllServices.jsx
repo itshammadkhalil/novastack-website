@@ -73,7 +73,7 @@ const fullServices = [
 
 const AllServices = () => {
   return (
-    <section id="all-services" className="relative w-full py-16 md:py-24 bg-zinc-950 flex flex-col items-center justify-center border-t border-white/5 overflow-hidden">
+    <section id="all-services" className="relative w-full py-16 md:py-24 bg-zinc-950 flex flex-col items-center justify-center border-t border-white/5 overflow-hidden flex-shrink-0">
       
       {/* Dynamic Background Glow */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-green-500/5 rounded-full blur-[150px] pointer-events-none"></div>
@@ -85,7 +85,7 @@ const AllServices = () => {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.1 }}
             className="text-4xl md:text-7xl font-black text-white uppercase tracking-tighter italic leading-none"
           >
             Core <span className="text-zinc-800 text-outline-white italic">Capabilities</span>
@@ -94,7 +94,7 @@ const AllServices = () => {
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.1 }}
             className="mt-6 text-zinc-500 text-[10px] md:text-xs font-black uppercase tracking-[0.4em] max-w-2xl mx-auto"
           >
             Unlimited Technical Stack. Precision Engineering. Automated Growth.
@@ -107,16 +107,14 @@ const AllServices = () => {
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
               className="p-8 rounded-[3rem] bg-zinc-900/30 border border-white/5 hover:border-green-500/40 transition-all duration-500 group relative flex flex-col h-full overflow-hidden"
             >
-              {/* Service Icon */}
               <div className="text-green-500 mb-8 p-4 bg-zinc-800/50 w-fit rounded-2xl border border-white/10 group-hover:bg-green-500 group-hover:text-black transition-all duration-500">
                 {service.icon}
               </div>
 
-              {/* Title & Desc */}
               <h3 className="text-2xl font-black text-white uppercase italic tracking-tighter mb-4 group-hover:text-green-500 transition-colors">
                 {service.title}
               </h3>
@@ -125,7 +123,6 @@ const AllServices = () => {
                 {service.desc}
               </p>
 
-              {/* Skills Breakdown */}
               <div className="space-y-3 mb-8 pt-6 border-t border-white/5">
                 {service.features.map((feature, i) => (
                   <div key={i} className="flex items-center gap-3">
@@ -144,7 +141,6 @@ const AllServices = () => {
                  </div>
               </div>
 
-            
               <div className="absolute top-6 right-8 text-zinc-800/20 font-black italic text-4xl group-hover:text-green-500/5">
                 {index + 1 < 10 ? `0${index + 1}` : index + 1}
               </div>

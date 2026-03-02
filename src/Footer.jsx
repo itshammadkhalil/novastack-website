@@ -10,7 +10,8 @@ const Footer = () => {
   };
 
   return (
-    <footer className="w-full bg-zinc-950 border-t border-white/5 py-12 relative z-50">
+    // 'flex-shrink-0' add kiya hai taake footer apni jagah par lock rahe
+    <footer className="w-full bg-zinc-950 border-t border-white/5 py-12 flex-shrink-0 z-50">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           
@@ -24,7 +25,7 @@ const Footer = () => {
             </div>
             <div className="flex gap-4 text-[10px] uppercase tracking-widest font-black">
               <button onClick={() => toggleModal('privacy')} className="text-zinc-500 hover:text-green-500 transition-colors">Privacy Policy</button>
-              <button onClick={() => toggleModal('terms')} className="text-zinc-500 hover:text-green-500 transition-colors">Terms of Use</button>
+              <button onClick={() => toggleModal('terms')} className="text-terms hover:text-green-500 transition-colors">Terms of Use</button>
             </div>
           </div>
 
