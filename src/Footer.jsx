@@ -11,7 +11,7 @@ const Footer = () => {
 
   return (
     <>
-      {/* Footer apni jagah rahega */}
+      {/* --- FOOTER SECTION --- */}
       <footer className="w-full bg-zinc-950 border-t border-white/5 py-12 flex-shrink-0 z-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
@@ -33,7 +33,6 @@ const Footer = () => {
               <a href="https://www.linkedin.com/company/the-novastack/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-zinc-900 border border-white/5 flex items-center justify-center text-zinc-500 hover:text-white hover:border-green-500/50 transition-all hover:-translate-y-1">
                 <Linkedin size={20} />
               </a>
-             
               <a href="mailto:novastack.info@gmail.com" className="w-10 h-10 rounded-full bg-zinc-900 border border-white/5 flex items-center justify-center text-zinc-500 hover:text-white hover:border-green-500/50 transition-all hover:-translate-y-1">
                 <Mail size={20} />
               </a>
@@ -53,12 +52,20 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-
-      {/* --- POPUP MODAL (Ab Footer se bahar hai, 100% center hoga) --- */}
+      
       {modalContent && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-6 bg-black/95 backdrop-blur-md">
-          <div className="bg-zinc-900 border border-white/10 p-8 md:p-12 rounded-[2.5rem] max-w-3xl w-full max-h-[85vh] overflow-y-auto relative shadow-2xl">
-            <button onClick={() => toggleModal(null)} className="absolute top-6 right-6 text-zinc-500 hover:text-white transition-colors">
+        <div 
+          className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm"
+          onClick={() => toggleModal(null)}
+        >
+          <div 
+            className="bg-zinc-900 border border-white/10 p-8 md:p-12 rounded-[2.5rem] max-w-3xl w-full max-h-[85vh] overflow-y-auto relative shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button 
+              onClick={() => toggleModal(null)} 
+              className="absolute top-6 right-6 text-zinc-500 hover:text-white transition-colors"
+            >
               <X size={24} />
             </button>
             
@@ -92,7 +99,10 @@ const Footer = () => {
               )}
             </div>
             
-            <button onClick={() => toggleModal(null)} className="mt-10 w-full py-4 bg-white text-black font-black uppercase text-[10px] rounded-2xl hover:bg-green-500 transition-all">
+            <button 
+              onClick={() => toggleModal(null)} 
+              className="mt-10 w-full py-4 bg-white text-black font-black uppercase text-[10px] rounded-2xl hover:bg-green-500 transition-all"
+            >
               Acknowledge & Close
             </button>
           </div>
