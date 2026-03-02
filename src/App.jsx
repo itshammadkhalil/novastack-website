@@ -1,11 +1,11 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import AllServices from './components/AllServices';
-import Expertise from './components/Expertise';
-import Portfolio from './components/Portfolio';
-import Team from './components/Team';
-import Footer from './components/Footer';
+import Navbar from './Navbar';
+import Hero from './Hero';
+import AllServices from './AllServices';
+import Expertise from './Expertise';
+import Portfolio from './Portfolio';
+import Team from './Team';
+import Footer from './Footer';
 
 function App() {
   return (
