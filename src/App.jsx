@@ -5,6 +5,7 @@ import AllServices from './AllServices';
 import Expertise from './Expertise';
 import Portfolio from './Portfolio';
 import Team from './Team';
+import Contact from './Contact'; 
 import Footer from './Footer';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Expertise />
         <Portfolio />
         <Team />
+        <Contact /> 
       </main>
       
       <Footer />
