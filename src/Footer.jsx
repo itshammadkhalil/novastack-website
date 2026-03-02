@@ -10,12 +10,10 @@ const Footer = () => {
   };
 
   return (
-    // 'flex-shrink-0' add kiya hai taake footer apni jagah par lock rahe
     <footer className="w-full bg-zinc-950 border-t border-white/5 py-12 flex-shrink-0 z-50">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           
-          {/* Brand & Legal Details */}
           <div className="flex flex-col items-center md:items-start">
             <div className="flex items-center gap-2 mb-4">
               <img src="/logo.png" alt="NS" className="h-6 w-auto grayscale hover:grayscale-0 transition-all" />
@@ -24,12 +22,12 @@ const Footer = () => {
               </span>
             </div>
             <div className="flex gap-4 text-[10px] uppercase tracking-widest font-black">
-              <button onClick={() => toggleModal('privacy')} className="text-zinc-500 hover:text-green-500 transition-colors">Privacy Policy</button>
-              <button onClick={() => toggleModal('terms')} className="text-terms hover:text-green-500 transition-colors">Terms of Use</button>
+              {/* Privacy Policy aur Terms dono ka color white set kar diya hai */}
+              <button onClick={() => toggleModal('privacy')} className="text-white hover:text-green-500 transition-colors">Privacy Policy</button>
+              <button onClick={() => toggleModal('terms')} className="text-white hover:text-green-500 transition-colors">Terms of Use</button>
             </div>
           </div>
 
-          {/* Social Links */}
           <div className="flex items-center gap-6">
             <a href="https://www.linkedin.com/company/the-novastack/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-zinc-900 border border-white/5 flex items-center justify-center text-zinc-500 hover:text-white hover:border-green-500/50 transition-all hover:-translate-y-1">
               <Linkedin size={20} />
@@ -39,7 +37,6 @@ const Footer = () => {
             </a>
           </div>
 
-          {/* Copyright & Scroll Top */}
           <div className="text-center md:text-right">
             <p className="text-zinc-600 text-[10px] uppercase tracking-[0.2em] font-bold mb-3">
               © {new Date().getFullYear()} NovaStack Tech. All Rights Reserved.
@@ -54,7 +51,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* --- POPUP MODAL (Privacy & Terms) --- */}
+      {/* --- POPUP MODAL (Perfectly Centered) --- */}
       {modalContent && (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center p-6 bg-black/95 backdrop-blur-md">
           <div className="bg-zinc-900 border border-white/10 p-8 md:p-12 rounded-[2.5rem] max-w-3xl w-full max-h-[85vh] overflow-y-auto relative shadow-2xl">
