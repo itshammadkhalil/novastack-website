@@ -6,16 +6,19 @@ const Footer = () => {
 
   const toggleModal = (type) => {
     setModalContent(type);
-    document.body.style.overflow = type ? 'hidden' : 'unset';
+    // Body overflow handling update
+    if (type) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
   };
 
   return (
     <>
-      {/* --- FOOTER SECTION --- */}
-      <footer className="w-full bg-zinc-950 border-t border-white/5 py-12 flex-shrink-0 z-50">
+      <footer className="w-full bg-zinc-950 border-t border-white/5 py-12 flex-shrink-0 z-40">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            
             <div className="flex flex-col items-center md:items-start">
               <div className="flex items-center gap-2 mb-4">
                 <img src="/logo.png" alt="NS" className="h-6 w-auto grayscale hover:grayscale-0 transition-all" />
@@ -53,44 +56,29 @@ const Footer = () => {
         </div>
       </footer>
 
-    {/* --- POPUP MODAL (Fail-Safe Fix) --- */}
-{modalContent && (
-  <div 
-    className="fixed inset-0 z-[99999] flex items-center justify-center p-4 bg-black/90"
-    onClick={() => toggleModal(null)}
-  >
-    <div 
-      className="bg-zinc-900 border border-white/10 p-8 md:p-12 rounded-[2rem] max-w-2xl w-full max-h-[80vh] overflow-y-auto relative shadow-2xl"
-      onClick={(e) => e.stopPropagation()}
-    >
-      <button 
-        onClick={() => toggleModal(null)} 
-        className="absolute top-4 right-4 text-zinc-500 hover:text-white"
-      >
-        <X size={24} />
-      </button>
-      
-      <h3 className="text-2xl font-black text-white uppercase italic mb-6 border-b border-white/10 pb-4">
-        {modalContent === 'privacy' ? 'Privacy Protocol' : 'Service Terms'}
-      </h3>
-      
-      <div className="text-zinc-300 text-sm leading-relaxed space-y-4">
-        {modalContent === 'privacy' ? (
-          <p>At NovaStack, we operate under strict confidentiality. Data is encrypted and stored securely.</p>
-        ) : (
-          <p>Development begins after technical discovery and deposit confirmation. Final source code ownership transfers upon payment.</p>
-        )}
-      </div>
-      
-      <button 
-        onClick={() => toggleModal(null)} 
-        className="mt-8 w-full py-3 bg-green-500 text-black font-black uppercase text-xs rounded-xl"
-      >
-        Close
-      </button>
-    </div>
-  </div>
-)}
+      {/* --- MODAL --- */}
+      {modalContent && (
+        <div className="fixed inset-0 z-[999999] flex items-center justify-center bg-black/90 p-4">
+          <div className="bg-zinc-900 border border-white/10 p-8 rounded-[2rem] max-w-2xl w-full max-h-[80vh] overflow-y-auto relative shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+            <button onClick={() => toggleModal(null)} className="absolute top-4 right-4 text-zinc-500 hover:text-white">
+              <X size={24} />
+            </button>
+            <h3 className="text-2xl font-black text-white uppercase italic mb-6 border-b border-white/10 pb-4">
+              {modalContent === 'privacy' ? 'Privacy Protocol' : 'Service Terms'}
+            </h3>
+            <div className="text-zinc-300 text-sm leading-relaxed space-y-4">
+              {modalContent === 'privacy' ? (
+                <p>At NovaStack, we operate under strict confidentiality. Data is encrypted and stored securely.</p>
+              ) : (
+                <p>Development begins after technical discovery and deposit confirmation. Final source code ownership transfers upon payment.</p>
+              )}
+            </div>
+            <button onClick={() => toggleModal(null)} className="mt-8 w-full py-3 bg-green-500 text-black font-black uppercase text-xs rounded-xl">
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 };
