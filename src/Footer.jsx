@@ -50,37 +50,36 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-
-     {/* --- MODAL (Final Stable Version) --- */}
+      
 {modalContent && (
   <div 
-    className="fixed top-0 left-0 w-full h-full z-[999999] flex items-center justify-center bg-black/70 p-4"
-    onClick={() => toggleModal(null)}
+    className="fixed top-[20%] left-[5%] md:left-[25%] z-[999999] w-[90%] md:w-[50%] bg-zinc-900 border border-white/20 p-6 rounded-2xl shadow-2xl"
   >
-    <div 
-      className="bg-zinc-900 border border-white/10 p-8 rounded-[2rem] max-w-2xl w-full max-h-[80vh] overflow-y-auto relative shadow-2xl"
-      onClick={(e) => e.stopPropagation()}
+    <button 
+      onClick={() => toggleModal(null)} 
+      className="absolute top-4 right-4 text-zinc-400 hover:text-white"
     >
-      <button onClick={() => toggleModal(null)} className="absolute top-4 right-4 text-zinc-500 hover:text-white">
-        <X size={24} />
-      </button>
-      
-      <h3 className="text-2xl font-black text-white uppercase italic mb-6 border-b border-white/10 pb-4">
-        {modalContent === 'privacy' ? 'Privacy Protocol' : 'Service Terms'}
-      </h3>
-      
-      <div className="text-zinc-300 text-sm leading-relaxed space-y-4">
-        {modalContent === 'privacy' ? (
-          <p>At NovaStack, we operate under strict confidentiality. Data is encrypted and stored securely.</p>
-        ) : (
-          <p>Development begins after technical discovery and deposit confirmation. Final source code ownership transfers upon payment.</p>
-        )}
-      </div>
-      
-      <button onClick={() => toggleModal(null)} className="mt-8 w-full py-3 bg-green-500 text-black font-black uppercase text-xs rounded-xl hover:bg-green-600 transition-colors">
-        Close
-      </button>
+      <X size={20} />
+    </button>
+    
+    <h3 className="text-xl font-black text-white uppercase mb-4 border-b border-white/10 pb-2">
+      {modalContent === 'privacy' ? 'Privacy Protocol' : 'Service Terms'}
+    </h3>
+    
+    <div className="text-zinc-300 text-xs leading-relaxed mb-6">
+      {modalContent === 'privacy' ? (
+        <p>At NovaStack, we operate under strict confidentiality. Data is encrypted and stored securely.</p>
+      ) : (
+        <p>Development begins after technical discovery and deposit confirmation. Final source code ownership transfers upon payment.</p>
+      )}
     </div>
+    
+    <button 
+      onClick={() => toggleModal(null)} 
+      className="w-full py-2 bg-green-500 text-black font-black uppercase text-[10px] rounded-lg"
+    >
+      Close
+    </button>
   </div>
 )}
     </>
