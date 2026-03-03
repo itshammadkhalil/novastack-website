@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { Linkedin, Mail, ArrowUpCircle, X, Terminal } from 'lucide-react';
+import { Linkedin, Mail, ArrowUpCircle, X } from 'lucide-react';
 
 const Footer = () => {
   const [modalContent, setModalContent] = useState(null);
 
   const toggleModal = (type) => {
-  setModalContent(type);
-    
+    setModalContent(type);
   };
 
   return (
@@ -51,22 +50,42 @@ const Footer = () => {
         </div>
       </footer>
 
-{modalContent && (
-  <div className="fixed inset-0 z-[9999999] flex items-center justify-center p-4 bg-black/70">
-    <div 
-      className="bg-zinc-900 border border-white/20 p-8 rounded-3xl max-w-lg w-full relative z-[10000000]"
-      onClick={(e) => e.stopPropagation()}
-    >
-      <button onClick={() => setModalContent(null)} className="absolute top-4 right-4 text-white">X</button>
-      <h3 className="text-white text-xl font-black mb-4">
-        {modalContent === 'privacy' ? 'Privacy Protocol' : 'Service Terms'}
-      </h3>
-      <p className="text-zinc-300 text-sm">
-        {modalContent === 'privacy' ? 'Data is encrypted and stored securely.' : 'Ownership transfers upon payment.'}
-      </p>
-    </div>
-  </div>
-)}
+      {/* --- FINAL STABLE MODAL --- */}
+      {modalContent && (
+        <div 
+          className="fixed inset-0 w-full h-full z-[9999999] flex items-center justify-center bg-black/80 pointer-events-auto"
+          onClick={() => setModalContent(null)}
+        >
+          <div 
+            className="bg-zinc-900 border border-white/20 p-8 rounded-3xl max-w-lg w-[90%] relative shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button 
+              onClick={() => setModalContent(null)} 
+              className="absolute top-6 right-6 text-zinc-400 hover:text-white"
+            >
+              <X size={24} />
+            </button>
+            
+            <h3 className="text-white text-xl font-black mb-6 uppercase tracking-widest border-b border-white/10 pb-4">
+              {modalContent === 'privacy' ? 'Privacy Protocol' : 'Service Terms'}
+            </h3>
+            
+            <p className="text-zinc-300 text-sm leading-relaxed mb-8">
+              {modalContent === 'privacy' 
+                ? 'At NovaStack, we operate under strict confidentiality. Any data collected during the engineering phase is encrypted and stored in isolated environments.' 
+                : 'NovaStack operates on a milestone-based delivery system. Development begins only after technical discovery and deposit confirmation.'}
+            </p>
+            
+            <button 
+              onClick={() => setModalContent(null)} 
+              className="w-full py-3 bg-white text-black font-black uppercase text-[10px] rounded-xl hover:bg-green-500 transition-all"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 };
