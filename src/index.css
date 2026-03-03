@@ -1,21 +1,23 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* 1. Hardware Acceleration (Blinking Fix) */
-* {
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-}
 
-/* 2. Smooth Scrolling fix for modern browsers */
 html {
-  scroll-behavior: smooth !important;
-  overscroll-behavior-y: none; /* Screen bouncing ko rokta hai */
+  scroll-behavior: smooth;
+ 
 }
 
-/* 3. Performance optimization for Glassmorphism */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #09090b; 
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+
 .backdrop-blur-md, .backdrop-blur-xl {
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  will-change: transform, opacity;
+  backdrop-filter: blur(12px); 
+  -webkit-backdrop-filter: blur(12px);
 }
