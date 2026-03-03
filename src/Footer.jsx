@@ -6,12 +6,7 @@ const Footer = () => {
 
   const toggleModal = (type) => {
     setModalContent(type);
-    // Body overflow handling update
-    if (type) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
+    
   };
 
   return (
@@ -58,8 +53,14 @@ const Footer = () => {
 
       {/* --- MODAL --- */}
       {modalContent && (
-        <div className="fixed inset-0 z-[999999] flex items-center justify-center bg-black/90 p-4">
-          <div className="bg-zinc-900 border border-white/10 p-8 rounded-[2rem] max-w-2xl w-full max-h-[80vh] overflow-y-auto relative shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+        <div 
+          className="fixed inset-0 z-[999999] flex items-center justify-center bg-black/80 w-screen h-screen p-4"
+          onClick={() => toggleModal(null)}
+        >
+          <div 
+            className="bg-zinc-900 border border-white/10 p-8 rounded-[2rem] max-w-2xl w-full max-h-[80vh] overflow-y-auto relative shadow-[0_0_50px_rgba(0,0,0,0.5)] z-[1000000]"
+            onClick={(e) => e.stopPropagation()}
+          >
             <button onClick={() => toggleModal(null)} className="absolute top-4 right-4 text-zinc-500 hover:text-white">
               <X size={24} />
             </button>
