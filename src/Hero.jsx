@@ -7,8 +7,8 @@ const Hero = () => {
     <section className="relative w-full min-h-screen bg-zinc-950 flex flex-col items-center justify-center overflow-hidden pt-20">
       
       {/* Background Glows */}
-      <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-green-500/10 rounded-full blur-[120px] pointer-events-none will-change-transform"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-[120px] pointer-events-none will-change-transform"></div>
+      <div className="absolute top-1/4 left-1/4 w-72 md:w-96 h-72 md:h-96 bg-green-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-72 md:w-96 h-72 md:h-96 bg-blue-500/10 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
         
