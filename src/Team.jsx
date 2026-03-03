@@ -37,7 +37,7 @@ const Team = () => {
 
   return (
     
-    <section id="team" className="py-24 bg-zinc-950 px-6 flex-shrink-0">
+    <section id="founders" className="py-24 bg-zinc-950 px-6 flex-shrink-0">
       <div className="max-w-7xl mx-auto">
         
         {/* Header */}
