@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, MessageSquare, Mail, User, Briefcase, ChevronDown } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import toast, { Toaster } from 'react-hot-toast'; 
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,9 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+   
+    const loadingToast = toast.loading('Sending your message...');
     
     emailjs.send(
       'service_cd64bmk',          
@@ -26,10 +30,12 @@ const Contact = () => {
       'O5YXVXAQaEWpjAb0s'        
     )
     .then((result) => {
-        alert("Message sent successfully!");
+        toast.dismiss(loadingToast); 
+        toast.success('Message sent successfully!'); 
         setFormData({ name: '', email: '', service: '', message: '' });
     }, (error) => {
-        alert("Failed to send, please try again.");
+        toast.dismiss(loadingToast);
+        toast.error('Failed to send, please try again.'); 
     });
   };
 
@@ -40,7 +46,18 @@ const Contact = () => {
   return (
     <section id="contact" className="relative w-full py-24 bg-zinc-950/50 flex flex-col items-center justify-center overflow-hidden border-t border-zinc-900/50 flex-shrink-0">
       
-     
+      
+      <Toaster 
+        position="bottom-right" 
+        toastOptions={{
+          style: {
+            background: '#18181b',
+            color: '#fff',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+          },
+        }}
+      />
+
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-green-500/5 rounded-full blur-[150px] pointer-events-none"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -54,15 +71,6 @@ const Contact = () => {
           >
             Let's <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600">Automate</span> Your Growth
           </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.1 }}
-            transition={{ delay: 0.1 }}
-            className="mt-4 text-zinc-500 max-w-2xl mx-auto text-lg"
-          >
-            Ready to build something amazing? Drop your project details below.
-          </motion.p>
         </div>
 
         <motion.div 
