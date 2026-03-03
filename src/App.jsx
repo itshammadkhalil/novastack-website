@@ -12,9 +12,7 @@ function App() {
   return (
     <div className="bg-zinc-950 min-h-screen flex flex-col overflow-x-hidden selection:bg-green-500/30">
       <Navbar />
-      
-     
-      <main className="flex-1 w-full relative z-auto">
+      <main className="flex-1 w-full relative">
         <Hero />
         <Expertise />
         <AllServices />
@@ -22,7 +20,6 @@ function App() {
         <Team />
         <Contact /> 
       </main>
-      
       <Footer />
     </div>
   );
