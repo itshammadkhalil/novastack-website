@@ -52,62 +52,45 @@ const Footer = () => {
           </div>
         </div>
       </footer>
+
+    {/* --- POPUP MODAL (Fail-Safe Fix) --- */}
+{modalContent && (
+  <div 
+    className="fixed inset-0 z-[99999] flex items-center justify-center p-4 bg-black/90"
+    onClick={() => toggleModal(null)}
+  >
+    <div 
+      className="bg-zinc-900 border border-white/10 p-8 md:p-12 rounded-[2rem] max-w-2xl w-full max-h-[80vh] overflow-y-auto relative shadow-2xl"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <button 
+        onClick={() => toggleModal(null)} 
+        className="absolute top-4 right-4 text-zinc-500 hover:text-white"
+      >
+        <X size={24} />
+      </button>
       
-      {modalContent && (
-        <div 
-          className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm"
-          onClick={() => toggleModal(null)}
-        >
-          <div 
-            className="bg-zinc-900 border border-white/10 p-8 md:p-12 rounded-[2.5rem] max-w-3xl w-full max-h-[85vh] overflow-y-auto relative shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button 
-              onClick={() => toggleModal(null)} 
-              className="absolute top-6 right-6 text-zinc-500 hover:text-white transition-colors"
-            >
-              <X size={24} />
-            </button>
-            
-            <h3 className="text-3xl font-black text-white uppercase italic mb-8 tracking-tighter border-b border-white/5 pb-4">
-              {modalContent === 'privacy' ? 'Data & Privacy Protocol' : 'Service Terms & Agreement'}
-            </h3>
-            
-            <div className="text-zinc-400 text-[13px] leading-relaxed space-y-6 font-medium italic">
-              {modalContent === 'privacy' ? (
-                <>
-                  <section>
-                    <h4 className="text-green-500 font-black mb-2 uppercase text-[11px] flex items-center gap-2"><Terminal size={12}/> 01. Data Integrity</h4>
-                    <p>At NovaStack, we operate under strict confidentiality. Any data collected during the engineering phase is encrypted and stored in isolated environments.</p>
-                  </section>
-                  <section>
-                    <h4 className="text-green-500 font-black mb-2 uppercase text-[11px] flex items-center gap-2"><Terminal size={12}/> 02. Information Usage</h4>
-                    <p>We do not sell or trade client information. Information is strictly used for service optimization and AI training (if specified).</p>
-                  </section>
-                </>
-              ) : (
-                <>
-                  <section>
-                    <h4 className="text-green-500 font-black mb-2 uppercase text-[11px] flex items-center gap-2"><Terminal size={12}/> 01. Project Engagement</h4>
-                    <p>NovaStack operates on a milestone-based delivery system. Development begins only after technical discovery and deposit confirmation.</p>
-                  </section>
-                  <section>
-                    <h4 className="text-green-500 font-black mb-2 uppercase text-[11px] flex items-center gap-2"><Terminal size={12}/> 02. Intellectual Property</h4>
-                    <p>Upon final payment, full ownership of custom source code is transferred to the client, ensuring total control over your digital assets.</p>
-                  </section>
-                </>
-              )}
-            </div>
-            
-            <button 
-              onClick={() => toggleModal(null)} 
-              className="mt-10 w-full py-4 bg-white text-black font-black uppercase text-[10px] rounded-2xl hover:bg-green-500 transition-all"
-            >
-              Acknowledge & Close
-            </button>
-          </div>
-        </div>
-      )}
+      <h3 className="text-2xl font-black text-white uppercase italic mb-6 border-b border-white/10 pb-4">
+        {modalContent === 'privacy' ? 'Privacy Protocol' : 'Service Terms'}
+      </h3>
+      
+      <div className="text-zinc-300 text-sm leading-relaxed space-y-4">
+        {modalContent === 'privacy' ? (
+          <p>At NovaStack, we operate under strict confidentiality. Data is encrypted and stored securely.</p>
+        ) : (
+          <p>Development begins after technical discovery and deposit confirmation. Final source code ownership transfers upon payment.</p>
+        )}
+      </div>
+      
+      <button 
+        onClick={() => toggleModal(null)} 
+        className="mt-8 w-full py-3 bg-green-500 text-black font-black uppercase text-xs rounded-xl"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+)}
     </>
   );
 };
