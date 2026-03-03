@@ -31,7 +31,7 @@ const Team = () => {
       image: "/bilal.jpg",
       linkedin: "https://www.linkedin.com/in/bilal-khaliq-69bb54291/",
       email: "Khaliqbilal53@gmail.com",
-      portfolio: "#"
+      portfolio: "http://bilalkhaliq.com/"
     }
   ];
 
@@ -62,8 +62,8 @@ const Team = () => {
                   <h4 className="text-2xl font-bold text-white mb-1 italic tracking-tight">{founder.name}</h4>
                   <p className="text-green-500 text-[10px] font-black uppercase tracking-[0.2em] mb-4">{founder.role}</p>
                   
-                  <p className="text-zinc-400 text-[11px] leading-relaxed mb-6 italic opacity-80 line-clamp-3">
-                    "{founder.bio}"
+                  <p className="text-zinc-400 text-[11px] leading-relaxed mb-6 italic opacity-80 min-h-[60px]">
+                       {founder.bio}
                   </p>
 
                   <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
