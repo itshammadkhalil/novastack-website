@@ -5,7 +5,7 @@ const Footer = () => {
   const [modalContent, setModalContent] = useState(null);
 
   const toggleModal = (type) => {
-    setModalContent(type);
+  setModalContent(type);
     
   };
 
@@ -50,36 +50,21 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      
+
 {modalContent && (
-  <div 
-    className="fixed top-[20%] left-[5%] md:left-[25%] z-[999999] w-[90%] md:w-[50%] bg-zinc-900 border border-white/20 p-6 rounded-2xl shadow-2xl"
-  >
-    <button 
-      onClick={() => toggleModal(null)} 
-      className="absolute top-4 right-4 text-zinc-400 hover:text-white"
+  <div className="fixed inset-0 z-[9999999] flex items-center justify-center p-4 bg-black/70">
+    <div 
+      className="bg-zinc-900 border border-white/20 p-8 rounded-3xl max-w-lg w-full relative z-[10000000]"
+      onClick={(e) => e.stopPropagation()}
     >
-      <X size={20} />
-    </button>
-    
-    <h3 className="text-xl font-black text-white uppercase mb-4 border-b border-white/10 pb-2">
-      {modalContent === 'privacy' ? 'Privacy Protocol' : 'Service Terms'}
-    </h3>
-    
-    <div className="text-zinc-300 text-xs leading-relaxed mb-6">
-      {modalContent === 'privacy' ? (
-        <p>At NovaStack, we operate under strict confidentiality. Data is encrypted and stored securely.</p>
-      ) : (
-        <p>Development begins after technical discovery and deposit confirmation. Final source code ownership transfers upon payment.</p>
-      )}
+      <button onClick={() => setModalContent(null)} className="absolute top-4 right-4 text-white">X</button>
+      <h3 className="text-white text-xl font-black mb-4">
+        {modalContent === 'privacy' ? 'Privacy Protocol' : 'Service Terms'}
+      </h3>
+      <p className="text-zinc-300 text-sm">
+        {modalContent === 'privacy' ? 'Data is encrypted and stored securely.' : 'Ownership transfers upon payment.'}
+      </p>
     </div>
-    
-    <button 
-      onClick={() => toggleModal(null)} 
-      className="w-full py-2 bg-green-500 text-black font-black uppercase text-[10px] rounded-lg"
-    >
-      Close
-    </button>
   </div>
 )}
     </>
