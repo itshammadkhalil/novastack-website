@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, MessageSquare, Mail, User, Briefcase } from 'lucide-react';
+import { Send, MessageSquare, Mail, User, Briefcase, ChevronDown } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    service: 'AI Calling Agents',
+    service: '', 
     message: ''
   });
 
@@ -27,7 +27,7 @@ const Contact = () => {
     )
     .then((result) => {
         alert("Message sent successfully!");
-        setFormData({ name: '', email: '', service: 'AI Calling Agents', message: '' });
+        setFormData({ name: '', email: '', service: '', message: '' });
     }, (error) => {
         alert("Failed to send, please try again.");
     });
@@ -40,7 +40,7 @@ const Contact = () => {
   return (
     <section id="contact" className="relative w-full py-24 bg-zinc-950/50 flex flex-col items-center justify-center overflow-hidden border-t border-zinc-900/50 flex-shrink-0">
       
-      {/* Background Glow */}
+     
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-green-500/5 rounded-full blur-[150px] pointer-events-none"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -50,7 +50,6 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.5 }}
             className="text-3xl md:text-5xl font-bold text-white tracking-tight"
           >
             Let's <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600">Automate</span> Your Growth
@@ -59,7 +58,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ delay: 0.1 }}
             className="mt-4 text-zinc-500 max-w-2xl mx-auto text-lg"
           >
             Ready to build something amazing? Drop your project details below.
@@ -70,7 +69,7 @@ const Contact = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ delay: 0.2 }}
           className="max-w-2xl mx-auto bg-zinc-900/40 border border-white/5 p-8 rounded-[2rem] backdrop-blur-md"
         >
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -93,23 +92,28 @@ const Contact = () => {
               <label className="text-sm font-medium text-zinc-400 flex items-center gap-2">
                 <Briefcase size={16} className="text-green-500" /> Interested In
               </label>
-              <select 
-                name="service"
-                value={formData.service}
-                onChange={handleChange}
-                className="w-full bg-zinc-950/40 border border-white/10 text-white px-4 py-3 rounded-xl focus:outline-none focus:border-green-500/50 transition-all appearance-none"
-              >
-                <option value="AI Calling Agents">AI Calling Agents</option>
-                <option value="Custom Web Apps">Custom Web Apps</option>
-                <option value="AI Automation (n8n)">AI Automation (n8n)</option>
-                <option value="Shopify Stores">Shopify Stores</option>
-                <option value="Backend & Cloud">Backend & Cloud</option>
-                <option value="AI Integration">AI Integration</option>
-                <option value="SEO & Performance">SEO & Performance</option>
-                <option value="Meta Ads Scaling">Meta Ads Scaling</option>
-                <option value="WordPress & CMS">WordPress & CMS</option>
-                <option value="Other">Other Query</option>
-              </select>
+              <div className="relative">
+                <select 
+                  name="service"
+                  required
+                  value={formData.service}
+                  onChange={handleChange}
+                  className="w-full bg-zinc-950/40 border border-white/10 text-white px-4 py-3 rounded-xl focus:outline-none focus:border-green-500/50 transition-all appearance-none cursor-pointer"
+                >
+                  <option value="" disabled>Select a Service</option>
+                  <option value="AI Calling Agents">AI Calling Agents</option>
+                  <option value="Custom Web Apps">Custom Web Apps</option>
+                  <option value="AI Automation (n8n)">AI Automation (n8n)</option>
+                  <option value="Shopify Stores">Shopify Stores</option>
+                  <option value="Backend & Cloud">Backend & Cloud</option>
+                  <option value="AI Integration">AI Integration</option>
+                  <option value="SEO & Performance">SEO & Performance</option>
+                  <option value="Meta Ads Scaling">Meta Ads Scaling</option>
+                  <option value="WordPress & CMS">WordPress & CMS</option>
+                  <option value="Other">Other Query</option>
+                </select>
+                <ChevronDown size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-500 pointer-events-none" />
+              </div>
             </div>
 
             <div className="space-y-2">
